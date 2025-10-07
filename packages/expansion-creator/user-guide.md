@@ -1200,10 +1200,8 @@ Explore expansion packs existentes para inspiração:
 - `expansion-packs/aios-infrastructure-devops/` - DevOps e infraestrutura
 - `expansion-packs/meeting-notes/` - Pack simples e focado
 
-### Comunidade
+### Suporte
 
-- **Discord**: [AIOS Community](https://discord.gg/aios-community)
-- **GitHub Discussions**: [AIOS Discussions](https://github.com/Pedrovaleriolopez/aios-fullstack/discussions)
 - **GitHub Issues**: [Report Issues](https://github.com/Pedrovaleriolopez/aios-fullstack/issues)
 
 ### Contribuindo
