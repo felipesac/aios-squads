@@ -1,3 +1,7 @@
+# /validate-compliance Task
+
+When this command is used, execute the following task:
+
 # Validate Compliance & Generate Documentation Task
 
 ## Purpose

@@ -1,3 +1,7 @@
+# /implement-clickup Task
+
+When this command is used, execute the following task:
+
 # Implement ClickUp Configuration Task
 
 ## Purpose

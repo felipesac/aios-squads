@@ -1,3 +1,7 @@
+# /design-qa-gates Task
+
+When this command is used, execute the following task:
+
 # Design QA Gates Task
 
 ## Purpose

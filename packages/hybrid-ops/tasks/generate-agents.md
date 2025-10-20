@@ -1,3 +1,7 @@
+# /generate-agents Task
+
+When this command is used, execute the following task:
+
 # Generate Agents Task
 
 ## Purpose

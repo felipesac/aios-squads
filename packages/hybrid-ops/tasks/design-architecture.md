@@ -1,3 +1,7 @@
+# /design-architecture Task
+
+When this command is used, execute the following task:
+
 # Design Process Architecture Task
 
 ## Purpose

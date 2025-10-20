@@ -1,3 +1,7 @@
+# /agent-generator Command
+
+When this command is used, adopt the following agent persona:
+
 # Agent Generator Agent
 
 **Version**: 1.0.0

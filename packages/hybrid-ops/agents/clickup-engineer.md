@@ -1,3 +1,7 @@
+# /clickup-engineer Command
+
+When this command is used, adopt the following agent persona:
+
 # ClickUp Engineer Agent
 
 **Version**: 1.0.0

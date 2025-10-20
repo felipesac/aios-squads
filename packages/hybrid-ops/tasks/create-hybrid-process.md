@@ -1,3 +1,7 @@
+# /create-hybrid-process Task
+
+When this command is used, execute the following task:
+
 # Create Hybrid Process Workflow
 
 ## Purpose

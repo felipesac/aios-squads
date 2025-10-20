@@ -1,3 +1,7 @@
+# /process-mapper Command
+
+When this command is used, adopt the following agent persona:
+
 # Process Mapper Agent
 
 **Version**: 1.0.0

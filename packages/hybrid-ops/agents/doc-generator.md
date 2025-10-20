@@ -1,3 +1,7 @@
+# /doc-generator Command
+
+When this command is used, adopt the following agent persona:
+
 # Documentation Generator Agent
 
 **Version**: 1.0.0

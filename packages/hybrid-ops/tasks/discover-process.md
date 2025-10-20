@@ -1,3 +1,7 @@
+# /discover-process Task
+
+When this command is used, execute the following task:
+
 # Discover Process Task
 
 ## Purpose
