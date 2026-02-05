@@ -1,0 +1,193 @@
+# FinHealth Squad - Manifesto
+# Synkra AIOS Squad Format v2.1+
+
+name: finhealth-squad
+version: 1.0.0
+short-title: FinHealth - Healthcare Financial AI
+description: >-
+  Intelligent Financial Module for Healthcare with AI.
+  Billing TISS/SUS, Medical Account Auditing, Payment Reconciliation,
+  and Cash Flow Management for Brazilian hospitals.
+
+author: Noxtec
+slashPrefix: finhealth
+status: development
+license: proprietary
+
+tags:
+  - healthcare
+  - fintech
+  - billing
+  - audit
+  - ai-agents
+  - tiss
+  - sus
+  - glosas
+  - hospital-finance
+
+domain: healthcare-finance
+
+requires:
+  node: ">=18.0.0"
+  aios: ">=2.1.0"
+
+# ============================================
+# AGENTS
+# ============================================
+agents:
+  - billing-agent      # TISS/SUS guide generation and validation
+  - auditor-agent      # Medical account auditing and glosa prediction
+  - reconciliation-agent  # Payment reconciliation and appeals
+  - cashflow-agent     # Cash flow analysis and forecasting
+  - supervisor-agent   # Squad orchestration and monitoring
+
+# ============================================
+# TASKS (Entry Points - Task-First Architecture)
+# ============================================
+tasks:
+  # Billing
+  - validate-tiss
+  - generate-tiss-guide
+  - generate-sus-aih
+  - fix-billing-errors
+
+  # Auditing
+  - audit-account
+  - audit-batch
+  - score-glosa-risk
+  - detect-inconsistencies
+
+  # Reconciliation
+  - reconcile-payment
+  - match-invoices
+  - generate-appeal
+  - prioritize-appeals
+
+  # Cash Flow
+  - forecast-cashflow
+  - detect-anomalies
+  - score-delinquency
+  - generate-financial-report
+
+  # Orchestration
+  - route-request
+  - monitor-sla
+  - generate-consolidated-report
+
+# ============================================
+# WORKFLOWS
+# ============================================
+workflows:
+  billing-pipeline:
+    description: "Complete billing pipeline: generate -> validate -> audit -> send"
+    steps:
+      - task: generate-tiss-guide
+        agent: billing-agent
+      - task: validate-tiss
+        agent: billing-agent
+      - task: audit-account
+        agent: auditor-agent
+      - task: score-glosa-risk
+        agent: auditor-agent
+    trigger: manual
+
+  audit-pipeline:
+    description: "Batch audit of pending accounts"
+    steps:
+      - task: audit-batch
+        agent: auditor-agent
+      - task: detect-inconsistencies
+        agent: auditor-agent
+      - task: generate-consolidated-report
+        agent: supervisor-agent
+    trigger: scheduled
+    schedule: "0 6 * * *"  # Daily at 6 AM
+
+  reconciliation-pipeline:
+    description: "Reconciliation of received payments"
+    steps:
+      - task: reconcile-payment
+        agent: reconciliation-agent
+      - task: match-invoices
+        agent: reconciliation-agent
+      - task: prioritize-appeals
+        agent: reconciliation-agent
+      - task: generate-appeal
+        agent: reconciliation-agent
+    trigger: on-event
+    event: payment-received
+
+  monthly-close:
+    description: "Monthly financial closing"
+    steps:
+      - task: audit-batch
+        agent: auditor-agent
+      - task: reconcile-payment
+        agent: reconciliation-agent
+      - task: forecast-cashflow
+        agent: cashflow-agent
+      - task: generate-financial-report
+        agent: cashflow-agent
+      - task: generate-consolidated-report
+        agent: supervisor-agent
+    trigger: scheduled
+    schedule: "0 8 1 * *"  # 1st of each month at 8 AM
+
+# ============================================
+# CONFIGURATION
+# ============================================
+config:
+  coding-standards: config/coding-standards.md
+  tech-stack: config/tech-stack.md
+  source-tree: config/source-tree.md
+
+# ============================================
+# REFERENCE DATA
+# ============================================
+data:
+  tuss-table: data/tuss-procedures.json
+  cbhpm-table: data/cbhpm-values.json
+  sigtap-table: data/sigtap-procedures.json
+  tiss-schemas: data/tiss-schemas/
+  glosa-codes: data/glosa-codes.json
+
+# ============================================
+# SCRIPTS
+# ============================================
+scripts:
+  parsers:
+    - scripts/parsers/tiss-xml-parser.ts
+    - scripts/parsers/payment-xml-parser.ts
+  validators:
+    - scripts/validators/tiss-validator.ts
+    - scripts/validators/account-validator.ts
+  generators:
+    - scripts/generators/appeal-generator.ts
+    - scripts/generators/report-generator.ts
+
+# ============================================
+# INTEGRATIONS
+# ============================================
+integrations:
+  llm:
+    primary: claude-api
+    fallback: openai-gpt4o
+  external:
+    - name: ans-tiss
+      description: "TISS/ANS standard for communication with health insurers"
+    - name: datasus
+      description: "Integration with SUS systems (SIGTAP, BPA, AIH)"
+    - name: fhir
+      description: "HL7 FHIR for EHR integration"
+
+# ============================================
+# DEPENDENCIES
+# ============================================
+dependencies:
+  node:
+    - "fast-xml-parser"
+    - "axios"
+    - "date-fns"
+    - "decimal.js"
+    - "zod"
+    - "lodash"

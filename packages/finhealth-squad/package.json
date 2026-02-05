@@ -1,0 +1,39 @@
+{
+  "name": "@aios-squads/finhealth-squad",
+  "version": "1.0.0",
+  "description": "Intelligent Financial Module for Healthcare with AI - TISS/SUS Billing, Auditing, Reconciliation, and Cash Flow Management",
+  "author": "Noxtec",
+  "license": "PROPRIETARY",
+  "private": true,
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "keywords": [
+    "healthcare",
+    "fintech",
+    "billing",
+    "tiss",
+    "sus",
+    "audit",
+    "ai-agents",
+    "hospital-finance"
+  ],
+  "dependencies": {
+    "fast-xml-parser": "^4.3.0",
+    "axios": "^1.6.0",
+    "date-fns": "^3.0.0",
+    "decimal.js": "^10.4.0",
+    "zod": "^3.22.0",
+    "lodash": "^4.17.21"
+  },
+  "devDependencies": {
+    "@types/lodash": "^4.14.0",
+    "@types/node": "^20.0.0",
+    "typescript": "^5.3.0"
+  },
+  "scripts": {
+    "build": "tsc",
+    "lint": "eslint src/",
+    "test": "vitest"
+  }
+}

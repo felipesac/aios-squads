@@ -54,6 +54,53 @@
           "create-expansion-template",
           "install-expansion-commands"
         ]
+      },
+      {
+        "name": "finhealth-squad",
+        "version": "1.0.0",
+        "path": "packages/finhealth-squad",
+        "description": "Intelligent Financial Module for Healthcare with AI - TISS/SUS Billing, Auditing, Reconciliation, and Cash Flow Management",
+        "author": "Noxtec",
+        "status": "development",
+        "tags": ["healthcare", "fintech", "billing", "audit", "tiss", "sus", "glosas", "hospital-finance"],
+        "requires": {
+          "node": ">=18.0.0",
+          "aios": ">=2.1.0"
+        },
+        "agents": [
+          "billing-agent",
+          "auditor-agent",
+          "reconciliation-agent",
+          "cashflow-agent",
+          "supervisor-agent"
+        ],
+        "tasks": [
+          "validate-tiss",
+          "generate-tiss-guide",
+          "generate-sus-aih",
+          "fix-billing-errors",
+          "audit-account",
+          "audit-batch",
+          "score-glosa-risk",
+          "detect-inconsistencies",
+          "reconcile-payment",
+          "match-invoices",
+          "generate-appeal",
+          "prioritize-appeals",
+          "forecast-cashflow",
+          "detect-anomalies",
+          "score-delinquency",
+          "generate-financial-report",
+          "route-request",
+          "monitor-sla",
+          "generate-consolidated-report"
+        ],
+        "workflows": [
+          "billing-pipeline",
+          "audit-pipeline",
+          "reconciliation-pipeline",
+          "monthly-close"
+        ]
       }
     ],
     "community": []
