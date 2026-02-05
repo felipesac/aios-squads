@@ -29,7 +29,7 @@ jobs:
           done
 
           # Check package directories exist
-          for dir in packages/etl-squad packages/creator-squad packages/mmos-squad; do
+          for dir in packages/etl-squad packages/finhealth-squad; do
             if [ ! -d "$dir" ]; then
               echo "Missing package directory: $dir"
               exit 1
