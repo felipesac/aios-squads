@@ -164,19 +164,28 @@ scripts:
   generators:
     - scripts/generators/appeal-generator.ts
     - scripts/generators/report-generator.ts
+  scrapers:
+    - scripts/scrapers/ans-scraper.ts
+    - scripts/scrapers/datasus-scraper.ts
+    - scripts/scrapers/cbhpm-scraper.ts
 
 # ============================================
 # INTEGRATIONS
 # ============================================
 integrations:
   llm:
-    primary: claude-api
-    fallback: openai-gpt4o
+    routine: openai-gpt4o-mini      # Routine tasks: TISS validation, glosa scoring, parsing, classification
+    advanced: openai-gpt5-mini      # Complex tasks: appeal generation, consolidated reports, web search fallback
   external:
     - name: ans-tiss
       description: "TISS/ANS standard for communication with health insurers"
+      scraper: scripts/scrapers/ans-scraper.ts
     - name: datasus
       description: "Integration with SUS systems (SIGTAP, BPA, AIH)"
+      scraper: scripts/scrapers/datasus-scraper.ts
+    - name: cbhpm
+      description: "CBHPM medical procedure reference table"
+      scraper: scripts/scrapers/cbhpm-scraper.ts
     - name: fhir
       description: "HL7 FHIR for EHR integration"
 
@@ -185,9 +194,10 @@ integrations:
 # ============================================
 dependencies:
   node:
-    - "fast-xml-parser"
     - "axios"
+    - "cheerio"
     - "date-fns"
     - "decimal.js"
+    - "fast-xml-parser"
+    - "openai"
     - "zod"
-    - "lodash"
